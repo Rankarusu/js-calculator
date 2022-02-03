@@ -1,103 +1,165 @@
-:root {
-	/* Gruvbox dark color scheme */
-	--bg_h: #1d2021;
-	--bg  : #282828;
-	--bg_s: #32302f;
-	--bg1 : #3c3836;
-	--bg2 : #504945;
-	--bg3 : #665c54;
-	--bg4 : #7c6f64;
+:root,
+:root.dark {
+  /* Gruvbox dark color scheme */
+  --bg_h: #1d2021;
+  --bg: #282828;
+  --bg_s: #32302f;
+  --bg1: #3c3836;
+  --bg2: #504945;
+  --bg3: #665c54;
+  --bg4: #7c6f64;
 
-	--fg : #fbf1c7;
-	--fg1: #ebdbb2;
-	--fg2: #d5c4a1;
-	--fg3: #bdae93;
-	--fg4: #a89984;
+  --fg: #fbf1c7;
+  --fg1: #ebdbb2;
+  --fg2: #d5c4a1;
+  --fg3: #bdae93;
+  --fg4: #a89984;
 
-	--red   : #fb4934;
-	--green : #b8bb26;
-	--yellow: #fabd2f;
-	--blue  : #83a598;
-	--purple: #d3869b;
-	--aqua  : #8ec07c;
-	--gray  : #928374;
-	--orange: #fe8019;
+  --red: #fb4934;
+  --green: #b8bb26;
+  --yellow: #fabd2f;
+  --blue: #83a598;
+  --purple: #d3869b;
+  --aqua: #8ec07c;
+  --gray: #928374;
+  --orange: #fe8019;
 
-	--red-dim   : #cc2412;
-	--green-dim : #98971a;
-	--yellow-dim: #d79921;
-	--blue-dim  : #458588;
-	--purple-dim: #b16286;
-	--aqua-dim  : #689d6a;
-	--gray-dim  : #a89984;
-	--orange-dim: #d65d0e;
+  --red-dim: #cc2412;
+  --green-dim: #98971a;
+  --yellow-dim: #d79921;
+  --blue-dim: #458588;
+  --purple-dim: #b16286;
+  --aqua-dim: #689d6a;
+  --gray-dim: #a89984;
+  --orange-dim: #d65d0e;
+}
+
+:root.light {
+  --bg_h: #f9f5d7;
+  --bg: #fbf1c7;
+  --bg_s: #f2e5bc;
+  --bg1: #ebdbb2;
+  --bg2: #d5c4a1;
+  --bg3: #bdae93;
+  --bg4: #a89984;
+
+  --fg: #282828;
+  --fg1: #3c3836;
+  --fg2: #504945;
+  --fg3: #665c54;
+  --fg4: #7c6f64;
+
+  --red: #9d0006;
+  --green: #79740e;
+  --yellow: #b57614;
+  --blue: #076678;
+  --purple: #8f3f71;
+  --aqua: #427b58;
+  --orange: #af3a03;
+  --gray: #928374;
+
+  --red-dim: #cc2412;
+  --green-dim: #98971a;
+  --yellow-dim: #d79921;
+  --blue-dim: #458598;
+  --purple-dim: #b16286;
+  --aqua-dim: #689d6a;
+  --orange-dim: #d65d0e;
+  --gray-dim: #7c6f64;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing : border-box;
-	font-family: 'Fira Mono', monospace;
-
+  box-sizing: border-box;
+  font-family: "Fira Mono", monospace;
 }
 
 body {
-	padding   : 0;
-	margin    : 0;
-	background: var(--bg);
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
 }
 
 .calculator-grid {
-	display              : grid;
-	justify-content      : center;
-	align-content        : center;
-	min-height           : 100vh;
-	grid-template-columns: repeat(4, 100px);
-	grid-template-rows   : minmax(120px, auto) repeat(5, 100px);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
-
-.calculator-grid>button {
-	cursor          : pointer;
-	font-size       : 2rem;
-	border          : 1px solid var(--bg2);
-	outline         : none;
-	background-color: var(--bg1);
-	color           : var(--fg2)
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid var(--bg2);
+  outline: none;
+  background-color: var(--bg1);
+  color: var(--fg2);
 }
 
 .calculator-grid .delete {
-	font-size: 3rem;
+  font-size: 3rem;
 }
 
-.calculator-grid>button:hover {
-	background-color: var(--bg2);
+.calculator-grid > button:hover {
+  background-color: var(--bg2);
 }
 
 .span-two {
-	grid-column: span 2;
+  grid-column: span 2;
 }
 
 .output {
-	grid-column     : 1 /-1;
-	background-color: var(--bg1);
-	border          : 1px solid var(--bg2);
-	border-bottom   : 3px solid var(--bg2);
-	display         : flex;
-	align-items     : flex-end;
-	justify-content : space-around;
-	flex-direction  : column;
-	padding         : 10px;
-	word-wrap       : break-word;
-	word-break      : break-all;
+  grid-column: 1 /-1;
+  background-color: var(--bg1);
+  border: 1px solid var(--bg2);
+  border-bottom: 3px solid var(--bg2);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .output .previous-operand {
-	color    : var(--fg4);
-	font-size: 1.5rem;
+  color: var(--fg4);
+  font-size: 1.5rem;
 }
 
 .output .current-operand {
-	color    : var(--fg);
-	font-size: 2.5rem;
+  color: var(--fg);
+  font-size: 2.5rem;
+}
+
+.toggle-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.theme-btn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  background-color: var(--bg1);
+  color: var(--fg1);
+  font-size: 1.5rem;
+  width: 100px;
+  border: 1px solid var(--bg2);
+}
+
+.theme-btn.dark {
+  display: none;
+}
+
+.light .theme-btn.light {
+  display: none;
+}
+
+.light .theme-btn.dark {
+  display: block;
 }
